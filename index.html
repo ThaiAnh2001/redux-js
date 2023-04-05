@@ -5,9 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./logo_PTM.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Redux - js</title>
 </head>
 <body>
-    
+    <div class="wrap">
+        <div class="control">
+            <h2>Todo list today</h2>
+            <form id="form__control">
+                <input type="text" id="name" placeholder="Todo name">
+                <div class="flex-row">
+                    <input type="time" id="time">
+                    <select name="todo" id="todo">
+                        <option value="1">1
+                        </option>
+                        <option value="2">2
+                        </option>
+                        <option value="3">3
+                        </option>
+                    </select>
+                </div>
+                <button id="button-add">Add</button>
+            </form>
+        </div>
+        <div class="todo-list">
+            <h2>My todo</h2>
+            <div id="todo-list"></div>
+            <button id="delete-all">Delete all</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/redux@4.0.5/dist/redux.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>

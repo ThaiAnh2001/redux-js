@@ -1,0 +1,161 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+input {
+    padding: 12px;
+}
+
+:root {
+    --width-wrap: 380px;
+    --height-wrap: 90vh;
+    --primary-background: hsla(0,0%,100%,.65);
+    --background: linear-gradient(120deg, #1E90FF, #89f7fe);
+    --primary-radius: 8px;
+}
+
+html {
+
+}
+
+body {
+    height: 100%;
+    display: flex;
+    background: var(--background);
+}
+
+h2 {
+    margin-bottom: 12px;
+    text-align: center;
+}
+.wrap {
+    width: var(--width-wrap);
+    height: var(--height-wrap);
+    margin: auto;
+    margin-top: calc(50vh - var(--height-wrap) / 2);
+    margin-bottom: calc(50vh - var(--height-wrap) / 2);
+    background-color: var(--primary-background);
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--primary-radius);
+    overflow: hidden;
+}
+.control {
+    height: 30%;
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+}
+
+#form__control {
+    display: flex;
+    flex-direction: column;
+}
+
+#form__control input,  #form__control button, #form__control select{
+    border-radius: var(--primary-radius);
+    border: 1px solid #1E90FF;
+    outline: none;
+}
+
+#name {
+    width: 100%;
+    height: 28px;
+    margin-bottom: 12px;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-row * {
+    width: calc(50% - 6px);
+    margin-bottom: 12px;
+    height: 28px;
+}
+
+#button-add {
+    width: 100%;
+    height: 28px;
+    color: #fff;
+    background-color: #1E90FF;
+}
+
+#button-add:hover {
+    cursor: pointer;
+}
+
+.todo-list {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#todo-list {
+    height: 330px;
+    overflow-y: scroll;
+    margin-bottom: 12px;
+}
+
+#todo-list::-webkit-scrollbar {
+    display: none;
+}
+
+.todo-item {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    margin-bottom: 12px;
+    border-radius: var(--primary-radius);
+}
+
+#todo {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+#todo option {
+    padding: 0 12px;
+}
+
+.option-1 {
+    width: 5px;
+    height: 5px;
+    background-color: red;
+}
+
+.todo-item input {
+    margin: 10px;
+}
+
+.name-time {
+    width: 80%;
+}
+
+
+.delete-todo:hover {
+    cursor: pointer;
+}
+
+#delete-all {
+    margin-top: auto;
+    margin-left: auto;
+    height: 35px;
+    width: 50%;
+    background-color: #1E90FF;
+    border-radius: var(--primary-radius);
+    border: 1px solid #ccc;
+    color: #fff;
+}
+
+.delete-all:hover {
+    cursor: pointer;
+}
