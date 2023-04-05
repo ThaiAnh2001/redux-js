@@ -9,6 +9,12 @@ const todoReducer = (state=initialState, action) => {
             newTodo.push(action.payload);
             return newTodo
         }
+        case 'DELETE_TODO':{
+            const newTodo = [...state]
+            newTodo.splice(action.payload, 1)
+            return newTodo
+        }
+
         case 'DELETE_ALL': {
             const newTodo = []
             return newTodo
@@ -26,7 +32,7 @@ const renderTodoList = (todoList) => {
     const todoListElement = document.getElementById("todo-list")
     if(!todoListElement) return;
     todoListElement.innerHTML = ""
-    for(const todo of todoList) {
+    for(let index in todoList) {
         const divElement = document.createElement("div")
         const nameTimeElement = document.createElement("div")
         nameTimeElement.className= "name-time"
@@ -34,10 +40,10 @@ const renderTodoList = (todoList) => {
         const timeElement = document.createElement("p")
         const inputElement = document.createElement('input')
 
-        nameElement.innerHTML = todo.name
-        timeElement.innerHTML = todo.time
+        nameElement.innerHTML = todoList[index].name
+        timeElement.innerHTML = todoList[index].time
         divElement.className = 'todo-item'
-        divElement.style.background = `${(todo.prior == 1 && "linear-gradient(450deg, #00FFFF, #87CEFA)") || (todo.prior == 2 && "linear-gradient(450deg, #FFD700, #FFFF00)") || (todo.prior == 3 && "linear-gradient(450deg, #FF0000, #FA8072)")}`
+        divElement.style.background = `${(todoList[index].prior == 1 && "linear-gradient(450deg, #00FFFF, #87CEFA)") || (todoList[index].prior == 2 && "linear-gradient(450deg, #FFD700, #FFFF00)") || (todoList[index].prior == 3 && "linear-gradient(450deg, #FF0000, #FA8072)")}`
         inputElement.type = "checkbox"
         todoListElement.appendChild(divElement)
         divElement.appendChild(inputElement)
@@ -45,7 +51,14 @@ const renderTodoList = (todoList) => {
         nameTimeElement.appendChild(nameElement)
         nameTimeElement.appendChild(timeElement)
         
-        const deleteElement = document.createElement("i")
+        const deleteElement = document.createElement("i");
+        deleteElement.addEventListener('click', (e) => {
+            const action = {
+                type: "DELETE_TODO",
+                payload: index,
+            }
+            store.dispatch(action)
+        })
         deleteElement.className= "far fa-times-circle delete-todo"
         deleteElement.id= "delete-icon"
         divElement.appendChild(deleteElement)
